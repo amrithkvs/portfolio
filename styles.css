@@ -235,7 +235,7 @@ ul { list-style: none; }
 .scaleshow { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; align-content: center; }
 /* Two-class depth to beat `.case__media img { height:100%; object-fit:cover }`. */
 .scaleshow .scaleshow__item {
-  grid-area: 1 / 1; height: 55%; width: auto; object-fit: contain;
+  grid-area: 1 / 1; height: 60.5%; width: auto; object-fit: contain;
   transform-origin: center center; opacity: 0;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,0.45));
   will-change: transform, opacity;
@@ -431,7 +431,7 @@ ul { list-style: none; }
   /* Definite height + definite px image heights so the % -sized animation images
      (scaleshow/cardswipe) don't resolve against an indefinite grid row and overflow/crop. */
   .case__media { min-height: 0; height: 240px; }
-  .scaleshow .scaleshow__item { height: 185px; }
+  .scaleshow .scaleshow__item { height: 204px; }
   .cardswipe .cardswipe__item { height: 160px; }
   .about { grid-template-columns: 1fr; }
   .about__photo { max-width: 280px; }
