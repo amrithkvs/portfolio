@@ -431,15 +431,7 @@ ul { list-style: none; }
   /* Definite height + definite px image heights so the % -sized animation images
      (scaleshow/cardswipe) don't resolve against an indefinite grid row and overflow/crop. */
   .case__media { min-height: 0; height: 240px; }
-  /* Mobile: the drop-shadow filter forces a composited layer that mobile Safari
-     rasterizes at reduced resolution (to save memory), which is what looked blurry.
-     Drop the filter + will-change hint so the card renders at full pixel density.
-     The shadow is a desktop nicety; sharpness matters more on mobile. */
-  .scaleshow .scaleshow__item {
-    height: 185px;
-    will-change: auto;
-    filter: none;
-  }
+  .scaleshow .scaleshow__item { height: 185px; }
   .cardswipe .cardswipe__item { height: 160px; }
   .about { grid-template-columns: 1fr; }
   .about__photo { max-width: 280px; }
