@@ -443,6 +443,8 @@ ul { list-style: none; }
     border-bottom: 1px solid var(--line); padding: 1rem var(--gutter);
   }
   .nav.open .nav__links a { padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+  /* Strip the desktop CTA pill (border + rounded corners) inside the mobile menu */
+  .nav.open .nav__links .nav__cta { border: 0; border-radius: 0; }
 }
 
 /* ---------- Tablet & mobile: stack multi-image figure rows vertically ----------
