@@ -204,7 +204,6 @@ ul { list-style: none; }
 .coverflow .coverflow__item {
   position: absolute; top: 50%; left: 50%; width: 60%; height: auto; max-height: 88%;
   object-fit: contain;
-  border-radius: 8px; box-shadow: 0 7px 20px rgba(0,0,0,0.13);
   transform-origin: center center; backface-visibility: hidden;
   will-change: transform, opacity;
   animation: coverflow 9s cubic-bezier(0.66, 0, 0.34, 1) infinite;
@@ -233,10 +232,10 @@ ul { list-style: none; }
 }
 
 /* ---------- Scale swap (single card zooms up & cross-dissolves to the next, in a case card) ---------- */
-.scaleshow { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; }
+.scaleshow { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; align-content: center; }
 /* Two-class depth to beat `.case__media img { height:100%; object-fit:cover }`. */
 .scaleshow .scaleshow__item {
-  grid-area: 1 / 1; height: 69%; width: auto; object-fit: contain;
+  grid-area: 1 / 1; height: 55%; width: auto; object-fit: contain;
   transform-origin: center center; opacity: 0;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,0.45));
   will-change: transform, opacity;
