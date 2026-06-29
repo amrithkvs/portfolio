@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Designing Microsoft's Copilot Growth Engine · Amrith Srinivasan</title>
+  <meta name="description" content="Case study: a scalable framework for contextual upgrade experiences across Microsoft's Copilot products." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../styles.css?v=55" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html" class="nav__brand">Amrith Srinivasan</a>
+      <div class="nav__right">
+        <nav class="nav__links">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">Approach</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../assets/resume.pdf" class="nav__cta">Resume <span class="ico-arr">↗</span></a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cs-hero wrap">
+      <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+      <p class="eyebrow">Growth &amp; access</p>
+      <h1>Designing Microsoft's Copilot Growth Engine</h1>
+      <p class="cs-hero__lede">
+        Turning a patchwork of upgrade prompts into one contextual, intent-aware system for how
+        millions of people discover, access, and adopt premium Copilot across Microsoft's products.
+      </p>
+
+
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Lead Product Designer</dd></div>
+        <div><dt>Surfaces</dt><dd>M365 · Teams · Edge · Mobile · Copilot</dd></div>
+        <div><dt>Timeline</dt><dd>2025-present</dd></div>
+        <div><dt>Focus</dt><dd>Growth · Access</dd></div>
+      </dl>
+    </section>
+
+    <article class="cs-body wrap">
+
+      <h2>Overview</h2>
+      <p>
+        As Copilot spread across Microsoft 365, Teams, Edge, and mobile, the upgrade prompts fell apart.
+        They were inconsistent and rarely matched what someone was trying to do. I helped build one system
+        for how millions of people find and get access to premium Copilot, whether they buy it, start a
+        trial, request a license, or get assigned one by an admin. The goal was to make monetization part
+        of the product instead of a layer bolted on top.
+      </p>
+
+      <h2>The challenge</h2>
+
+      <p>Premium grew up one entry point at a time, scattered across the surfaces. Inconsistent patterns and unclear value made upgrading confusing, and hard to scale.</p>
+
+      <p>Research found the root cause. People couldn't tell what premium offered, or why it mattered.</p>
+      <!--<ul class="bullets">
+        <li>Feature discovery</li>
+        <li>Usage limits</li>
+        <li>License requests</li>
+        <li>Free trials</li>
+        <li>Organizational approval workflows</li>
+        <li>Self-service purchasing</li>
+      </ul>
+      <p>Because each had grown up on its own, the surfaces suffered from:</p>
+      <ul class="bullets">
+        <li>Inconsistent UX patterns</li>
+        <li>Confusing plan differentiation</li>
+        <li>High funnel abandonment</li>
+        <li>Difficulty scaling to new surfaces</li>
+        <li>Fragmented upgrade journeys</li>
+      </ul>
+      <p>
+        Research made the root problem clear: users often didn't understand what premium actually
+        unlocked, and couldn't justify an upgrade without a clear comparison of value.
+      </p> -->
+
+      <h2>My role</h2>
+      <p>
+        Because the work spanned every surface, it was as much about alignment as design. I partnered
+        across product, engineering, growth, research, content, and accessibility to pull scattered
+        experiences into one system. <!--My responsibilities spanned:-->
+      </p>
+      <!--<ul class="bullets">
+        <li>The upsell principles the org designed against</li>
+        <li>The core upgrade surface and its contextual patterns</li>
+        <li>Scalable frameworks new surfaces could adopt</li>
+        <li>Experimentation strategy and cross-product alignment</li>
+      </ul>-->
+
+      <h2>Reframing the problem</h2>
+      <p>
+        It would have been easy to design <em>better upgrade screens</em>. But isolated prompts were what
+        fragmented the experience in the first place. The real question wasn't the screen, it was the
+        system around it.
+      </p>
+      <div class="cs-figure">
+        <p style="font-size:var(--step-1); color:var(--text); margin:0;">
+          “How might we surface premium value at the exact moment a user needs it?”
+        </p>
+      </div>
+      <p>
+        That reframe moved us from <strong>generic paywalls</strong> to <strong>contextual value
+        moments</strong>, with premium as the answer to what someone was already trying to do.
+      </p>
+
+      <h2>What research told us</h2>
+      <p>Four patterns kept showing up, and each one shaped the system.</p>
+
+      <h3>Users wanted clarity before commitment</h3>
+      <p>
+        People wanted to see what they'd gain before committing. A clear comparison beat a simple prompt.
+      </p>
+      <h3>Context beat promotion</h3>
+      <p>
+        Contextual moments far outperformed generic entry points. Growth data named them the single
+        strongest conversion driver.
+      </p>
+      <h3>Enterprise users needed a justification, not a button</h3>
+      <p>
+        Many enterprise users couldn't just click “upgrade.” They needed enough to justify a license
+        request to a manager.
+      </p>
+      <h3>Friction lived everywhere</h3>
+      <p>
+        SKU choices, approval workflows, and too many options drove dropoff, often <em>after</em> intent
+        was already there.
+      </p>
+
+      <h2>Three principles that guided the work</h2>
+      <ul class="bullets">
+        <li><strong>Context over promotion</strong>: connect premium to intent, not to ad space.</li>
+        <li><strong>Upgrades are a system</strong>: requests, trials, purchases, and admin assignment are one journey, not four screens.</li>
+        <li><strong>Simplify the decision</strong>: make plan differences and the <em>why</em> obvious, not just the <em>what</em>.</li>
+      </ul>
+
+      <h2>A system of upgrade patterns and paths</h2>
+      <p>
+        Instead of one-size-fits-all prompts, I designed the upgrade experience as a system: three
+        reusable patterns, each matched to a different reason someone might upgrade, plus one
+        acquisition framework that connected the paths to convert. Every surface got a consistent,
+        intent-aware vocabulary instead of bespoke screens.
+      </p>
+
+      <h3>1 · Persistent upsells</h3>
+      <p>Always-available entry points, used when <em>awareness</em> was the main gap.</p>
+      <ul class="bullets">
+        <li>Painted Doors</li>
+        <li>Navigation entry points</li>
+        <li>Persistent buttons</li>
+        <li>License indicators</li>
+      </ul>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(1040px, 94vw);">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; overflow:visible;">
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <img src="../assets/images/copilot-leftnav.webp" alt="Persistent upsell in the left navigation: the plan name and Upgrade button, highlighted." style="width:50%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+            <img src="../assets/images/copilot-header.webp" alt="A persistent Upgrade call-to-action in the Copilot Cowork experience." style="width:50%; height:auto; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.14);" />
+          </div>
+        </div>
+        <figcaption>Persistent upsells: always-available entry points. The plan/Upgrade card in the navigation (highlighted) and an Upgrade call-to-action in Copilot Cowork.</figcaption>
+      </figure>
+
+      <h3>2 · Contextual upsells</h3>
+      <p>Triggered by what the user was actively trying to do.</p>
+      <ul class="bullets">
+        <li>Teams Intelligent Recap</li>
+        <li>Agent Store</li>
+        <li>Image Generation</li>
+        <!--<li>Feature-discovery moments</li>-->
+      </ul>
+      <p>Rather than sell a subscription, we surfaced the exact capability they reached for.</p>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(1400px, 96vw);">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; overflow:visible;">
+          <div style="display:flex; gap:0.9rem; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-ctx-teams.webp" alt="Teams Intelligent Recap prompting a premium upgrade to unlock the feature." style="width:100%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">Teams Intelligent Recap</div>
+            </div>
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-ctx-agents.webp" alt="The Agent Store, where premium agents drive a contextual upgrade moment." style="width:100%; height:auto; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.14);" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">Agent Store</div>
+            </div>
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-ctx-image.webp" alt="Image generation surfacing an upgrade at the moment a usage limit is reached." style="width:100%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">Image generation</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Contextual upsells: premium surfaced at the moment of intent, the exact capability a user was already reaching for.</figcaption>
+      </figure>
+
+      <h3>3 · Constraint-based upsells</h3>
+      <p>Triggered at a limit.</p>
+      <ul class="bullets">
+        <li>File limits</li>
+        <li>Copilot throttling</li>
+        <li>Credit depletion</li>
+        <li>Usage restrictions</li>
+      </ul>
+      <p>The hard part was tone. These moments had to feel <em>informative and fair</em>, never punitive.</p>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(1400px, 96vw);">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; overflow:visible;">
+          <div style="display:flex; gap:0.9rem; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-constraint-file.webp" alt="Copilot on the web showing a calm inline notice: 'You've reached the file upload limit. Upgrade to continue now, or come back tomorrow,' with an Upgrade button." style="width:100%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">File limits</div>
+            </div>
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-constraint-throttle.webp" alt="Word with the Copilot pane explaining it is experiencing high demand and prioritizing Premium customers, offering to try again later or upgrade for priority access." style="width:100%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">Copilot throttling</div>
+            </div>
+            <div style="flex:0 1 calc(50% - 0.45rem); min-width:0;">
+              <img src="../assets/images/copilot-constraint-credits.webp" alt="Word with the Copilot pane showing an 'You're out of credits' card, explaining Premium offers the highest AI usage limits, with an Upgrade button." style="width:100%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+              <div style="margin-top:0.8rem; text-align:center; font-size:var(--step--1); color:var(--text-mute);">Out of credits</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Constraint-based upsells: informative, non-punitive moments at a limit. A file cap, throttling under high demand, and credit depletion.</figcaption>
+      </figure>
+
+      <h3>4 · One acquisition framework, many paths</h3>
+      <p>
+        The same thinking applied to <em>how</em> people got access. The system had to support
+        several entitlement models at once:
+      </p>
+      <ul class="bullets">
+        <li>License request</li>
+        <li>Low-friction trial</li>
+        <li>Self-serve purchase</li>
+        <!--<li>Administrative assignment</li>-->
+      </ul>
+      <p>
+        Rather than design each in isolation, I treated them as connected pathways in one framework, so
+        a user or admin could move between them without hitting a wall.
+      </p>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(1040px, 94vw);">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; overflow:visible;">
+          <div style="display:flex; gap:1.25rem; align-items:flex-start;">
+            <img src="../assets/images/copilot-acquisition-license.webp" alt="The Copilot upgrade dialog for a commercial user: Microsoft 365 Copilot (Premium) with a Request license action and a Buy now action, alongside the apps it works across and a list of benefits." style="width:50%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+            <img src="../assets/images/copilot-acquisition-trial.webp" alt="The Copilot plan comparison: Microsoft 365 Copilot Chat (Basic, current plan) next to Premium with a Start trial action, noting the organization can approve continuation after a 30-day trial." style="width:50%; height:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+          </div>
+        </div>
+        <figcaption>One acquisition framework, many paths: request a license or buy now (left), or start a low-friction trial with org approval (right). Connected, not isolated.</figcaption>
+      </figure>
+
+      <!--<h2>Key design work</h2>
+
+      <h3>Simplifying the upgrade experience</h3>
+      <p>
+        We saw heavy abandonment <em>after</em> users clicked “upgrade.” That was a clear sign the system
+        was adding friction once intent had already been expressed. I drove the work to take it back out:
+      </p>
+      <ul class="bullets">
+        <li>Content simplification</li>
+        <li>Layout restructuring</li>
+        <li>Clearer hierarchy</li>
+        <li>A cleaner SKU comparison</li>
+        <li>Improved license-request flows</li>
+      </ul>
+
+      <figure class="cs-figure">
+        <div class="cs-figure__frame">[ ../assets/images/copilot-dime-beforeafter.jpg : simplifying the upgrade dialog: before vs. after ]</div>
+        <figcaption>Removing post-intent friction: clearer hierarchy and a simpler comparison.</figcaption>
+      </figure>
+
+      <h3>One consistent voice</h3>
+      <p>
+        Across products, terminology, layouts, and CTAs had all drifted. I helped align value
+        communication, CTA patterns, upgrade hierarchy, trial experiences, and plan-comparison models,
+        so the experience felt recognizable no matter which surface a user came from.
+      </p> -->
+
+      <h2>Impact</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="num">44%</div><div class="label">Click through rate</div></div>
+        <div class="cs-metric"><div class="num">85k+</div><div class="label">Monthly license assignments</div></div>
+        <div class="cs-metric"><div class="num">5+</div><div class="label">Surfaces unified</div></div>
+      </div>
+      <p>
+        More than any single number, the work changed how the team thought, from designing
+        <strong>paywalls</strong> to designing <strong>value-discovery experiences</strong>.
+      </p>
+
+      <h2>What I learned</h2>
+      <p>
+        The biggest lesson: monetization works best as part of the product, not a layer on top. People
+        accept an upgrade tied to a goal they're already chasing, and they resist a generic pitch that
+        interrupts them. Designing for that difference, across every surface, turned disconnected prompts
+        into a growth engine.
+      </p>
+
+      <div class="cs-next">
+        <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+        <a href="profiles-personalization.html" class="btn btn--ghost">Next: Profiles &amp; personalization <span class="ico-arr">→</span></a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__base">
+        <span>© <span id="year">2026</span> Amrith Srinivasan</span>
+        <a href="../index.html#contact">Get in touch <span class="ico-arr">→</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js?v=11"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amrith Srinivasan · Résumé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --text:#18181b; --dim:#43464d; --mute:#7a7e86; --line:#e3e5ea;
+    --accent:#b35200; --bg:#ffffff; --panel:#f6f7f9;  /* matches site light-mode accent (AA on white) */
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  @page{ size:letter; margin:0; }
+  html,body{ background:var(--bg); color:var(--text);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page{ width:8.5in; padding:0.45in 0.6in 0.4in; margin:0 auto; }
+
+  /* ---------- header ---------- */
+  header{ display:flex; justify-content:space-between; align-items:flex-end;
+    gap:1.5rem; padding-bottom:0.6rem; border-bottom:2px solid var(--text); }
+  .name{ font-size:30pt; font-weight:800; letter-spacing:-0.02em; line-height:1; }
+  .role{ font-size:11.5pt; font-weight:600; color:var(--accent);
+    margin-top:0.35rem; letter-spacing:0.01em; }
+  .contact{ font-size:8.6pt; color:var(--dim); text-align:right; line-height:1.7; white-space:nowrap; }
+  .contact a{ color:var(--dim); text-decoration:none; }
+  .contact b{ color:var(--text); font-weight:600; }
+
+  /* ---------- body grid ---------- */
+  .grid{ display:grid; grid-template-columns:1.95fr 1fr; gap:1.6rem; margin-top:0.85rem; }
+
+  h2{ font-size:9pt; font-weight:700; text-transform:uppercase; letter-spacing:0.13em;
+    color:var(--text); padding-bottom:0.25rem; margin-bottom:0.55rem;
+    border-bottom:1px solid var(--line); }
+  section + section{ margin-top:0.9rem; }
+
+  .summary{ font-size:9.6pt; line-height:1.48; color:var(--dim); }
+
+  /* ---------- experience ---------- */
+  .job{ margin-bottom:0.72rem; }
+  .job:last-child{ margin-bottom:0; }
+  .job__top{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+  .job__title{ font-size:10.5pt; font-weight:700; }
+  .job__title .co{ color:var(--accent); }
+  .job__date{ font-size:8.3pt; font-weight:600; color:var(--mute); white-space:nowrap; }
+  .job__meta{ font-size:8.6pt; font-weight:500; color:var(--mute); margin:0.04rem 0 0.34rem; font-style:italic; }
+  ul{ list-style:none; }
+  .job li{ position:relative; font-size:9.3pt; line-height:1.45; color:var(--dim);
+    padding-left:0.9rem; margin-bottom:0.22rem; }
+  .job li::before{ content:""; position:absolute; left:0; top:0.5em;
+    width:4px; height:4px; border-radius:50%; background:var(--accent); }
+  .job li b{ color:var(--text); font-weight:600; }
+  .earlier{ font-size:9.1pt; line-height:1.5; color:var(--dim); }
+  .earlier b{ color:var(--text); font-weight:600; }
+
+  /* ---------- sidebar ---------- */
+  .side h2{ margin-top:0; }
+  .skill-group{ margin-bottom:0.7rem; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-label{ font-size:8.3pt; font-weight:700; color:var(--text); margin-bottom:0.2rem; }
+  .skill-list{ font-size:8.8pt; line-height:1.5; color:var(--dim); }
+  .edu{ margin-bottom:0.7rem; }
+  .edu:last-child{ margin-bottom:0; }
+  .edu__deg{ font-size:9.2pt; font-weight:700; color:var(--text); }
+  .edu__sub{ font-size:8.6pt; color:var(--dim); margin-top:0.05rem; }
+  .edu__date{ font-size:8pt; color:var(--mute); margin-top:0.05rem; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="name">Amrith Srinivasan</div>
+      <div class="role">Product Designer</div>
+    </div>
+    <div class="contact">
+      <b>amrith.kvs@gmail.com</b><br/>
+      +1 (647) 823-9197<br/>
+      <a href="https://www.linkedin.com/in/amrith-srinivasan/">linkedin.com/in/amrith-srinivasan</a><br/>
+      <a href="http://amrith.ca/">amrith.ca</a>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">
+          Product designer with <b>10+ years</b> of experience, most recently at Microsoft. I design for products that millions of people
+          use on desktop, web, and mobile, and I'm at my best turning a messy, half-defined problem into
+          something a team can build.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job__top">
+            <div class="job__title"><span class="co">Microsoft</span> · UX/Visual Designer 2</div>
+            <div class="job__date">Sep 2021 – Present</div>
+          </div>
+          <div class="job__meta">Microsoft 365 &amp; Copilot · growth, identity &amp; access</div>
+          <ul>
+            <li>Helped design the <b>Copilot Growth Engine</b>, one system for how people upgrade and get access
+              to premium Copilot, covering purchases, trials, and admin-assigned licenses across Microsoft 365.
+              It reached a <b>44% click-through rate</b> and <b>85K+ monthly license assignments</b> across
+              5+ surfaces.</li>
+            <li>Unified Microsoft's <b>account &amp; identity surface</b> into one flexible framework that handles
+              account switching, license state, and plan value across web, desktop, and mobile, and adapts from
+              consumer to business and free to paid.</li>
+            <li>Turned a one-size-fits-all surface into a <b>system of 13 accessible themes</b>, so it felt native
+              inside each Microsoft product without fragmenting. Contributed a <b>~2% conversion lift</b> and
+              <b>100K+ new subscriptions</b>.</li>
+            <li>Led <b>0→1 design for Microsoft 365 Premium</b>, a new AI subscription, owning the upgrade
+              experience from first discovery through post-purchase. The launch drove <b>532K new subscribers</b>
+              and a <b>4–8% uplift</b> over existing renewal flows.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job__top">
+            <div class="job__title"><span class="co">GroupBy</span> · Product Designer</div>
+            <div class="job__date">Aug 2018 – Aug 2021</div>
+          </div>
+          <div class="job__meta">Enterprise eCommerce &amp; merchandising platform · Toronto, Canada</div>
+          <ul>
+            <li>Owned upstream web and mobile experiences, partnering with product managers and researchers to
+              concept, prototype, and ship interaction and motion design that lifted <b>site conversion</b> and
+              company <b>MRR</b>.</li>
+            <li>Built merchandising tools that helped customers make informed decisions with minimal cognitive
+              effort, balancing power-user depth with everyday simplicity.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job__top">
+            <div class="job__title"><span class="co">Diem</span> · Product Designer</div>
+            <div class="job__date">Mar 2018 – Jun 2018</div>
+          </div>
+          <div class="job__meta">Consumer mobile · Toronto, Canada</div>
+          <ul>
+            <li>Designed the full iOS and Android experience for the V1 launch, four apps in total,
+              reworking the home, details, and profile screens to carry the product vision.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <p class="earlier">
+            <b>Earlier (2016–2018):</b> UX/UI design and consulting at Ormat Technologies, Ontario Wholesale
+            Energy, and AppZoy Technologies, plus freelance work. Research-led mobile and web app design for
+            startups and enterprises across Canada and India.
+          </p>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="side">
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skill-group">
+          <div class="skill-label">Design</div>
+          <div class="skill-list">Product design · Design systems · Interaction &amp; prototyping ·
+            Information architecture · Visual &amp; motion design · 0→1 strategy</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Craft &amp; quality</div>
+          <div class="skill-list">Accessibility · Localization · Cross-device · Detail &amp; polish</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Research</div>
+          <div class="skill-list">Contextual interviews · Usability testing · Personas ·
+            Heuristic evaluation · Requirements gathering</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Tools</div>
+          <div class="skill-list">Figma · FigJam · Claude · Visual Studio</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu">
+          <div class="edu__deg">B.A., Business Economics</div>
+          <div class="edu__sub">York University · Toronto, Canada</div>
+          <div class="edu__date">2012 – 2016</div>
+        </div>
+        <div class="edu">
+          <div class="edu__deg">UX Design Certification</div>
+          <div class="edu__sub">Springboard Institute</div>
+          <div class="edu__date">2017</div>
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+</div>
+</body>
+</html>

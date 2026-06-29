@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>A Unified Account &amp; Identity Surface · Amrith Srinivasan</title>
+  <meta name="description" content="Case study: redesigning Microsoft's account & identity surface (the Me Control) into one flexible framework that adapts across consumer and commercial, free and paid." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../styles.css?v=55" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html" class="nav__brand">Amrith Srinivasan</a>
+      <div class="nav__right">
+        <nav class="nav__links">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">Approach</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../assets/resume.pdf" class="nav__cta">Resume <span class="ico-arr">↗</span></a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cs-hero wrap">
+      <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+      <p class="eyebrow">Identity &amp; personalization · Growth</p>
+      <h1>A unified account &amp; identity surface</h1>
+      <p class="cs-hero__lede">
+        A redesign of Microsoft's account surface: the &ldquo;Me Control&rdquo; people open to see who
+        they're signed in as, what their plan unlocks, and how to switch accounts. I shaped it into one
+        flexible identity framework that adapts across consumer and commercial, free and paid.
+      </p>
+
+
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Product Designer · Growth</dd></div>
+        <div><dt>Surface</dt><dd>Account control · web, desktop, mobile</dd></div>
+        <div><dt>Timeline</dt><dd>Design sprint · 2025</dd></div>
+        <div><dt>Focus</dt><dd>Identity · Personalization</dd></div>
+      </dl>
+    </section>
+
+    <article class="cs-body wrap">
+
+      <h2>Overview</h2>
+      <p>
+        The Me Control shows up across Microsoft's products. It's where people manage their identity, switch accounts, and get to settings. For all that reach, it had become little more than a sign-out menu, with no view of your plan, benefits, or account status. In a focused sprint, I helped turn it into a flexible identity framework that surfaces what users actually need, consistently wherever it appears.
+      </p>
+
+      <h2>The challenge</h2>
+      <p>
+        High reach, low clarity. Two forces pulled against each other:
+      </p>
+      <ul class="bullets">
+        <li><strong>Identity and access were invisible.</strong> On the one surface that's all about your
+          account, you couldn't tell what your license unlocked or where to manage it.</li>
+        <li><strong>One component, very different people.</strong> Personal &amp; family, basic and free,
+          commercial without a license, and commercial premium. All of it across web, desktop, and mobile,
+          launched from many products.</li>
+      </ul>
+      <p>
+        And it's high-trust. This is your own account surface. The answer couldn't be to cram more in. It had to
+        stay calm and scannable while doing more.
+      </p>
+
+      <h3>The starting point</h3>
+      <p>
+        As it stood, the Me Control was a capable account switcher and little more. It showed who you were
+        and let you switch accounts, but said nothing about your plan, what it unlocked, or how to change it.
+      </p>
+      <figure class="cs-figure">
+        <div style="display:flex; gap:1.6rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+          <div style="flex:1 1 240px; max-width:330px;">
+            <img src="../assets/images/profiles-before-consumer.webp" alt="The existing consumer Me Control: a Microsoft account header for Amanda Brady with Manage your account and View profile, followed by an account-switching list (Contoso, Gmail) and Add another account. No plan or benefits shown." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Consumer</p>
+          </div>
+          <div style="flex:1 1 240px; max-width:330px;">
+            <img src="../assets/images/profiles-before-commercial.webp" alt="The existing commercial Me Control: a Contoso account header for Amanda Brady with Manage your account and a custom link, followed by an account-switching list and Add another account. No plan or benefits shown." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Commercial</p>
+          </div>
+        </div>
+        <figcaption>Before: the existing Me Control handled identity and account switching, but gave no visibility into plan, benefits, or account status.</figcaption>
+      </figure>
+
+      <div class="cs-figure">
+        <h3 style="margin-top:0;">The strategic question</h3>
+        <p style="font-size:var(--step-1); color:var(--text);">
+          &ldquo;How might we make a high-traffic identity surface clearly show who you are and what you
+          can do, and adapt to every kind of user, without fragmenting into four different experiences?&rdquo;
+        </p>
+      </div>
+
+      <h2>My role</h2>
+      <p>
+        I led design for the sprint, partnering with PM, engineering, and research. I owned the framework,
+        the segment-specific treatments, and the principles that let other teams (including Growth's
+        experiments) build on the surface without breaking it.
+      </p>
+
+      <h2>Principles that guided the work</h2>
+      <h3>1 · Clear and concise</h3>
+      <p>
+        People don't linger here. Show only what helps now, and link out for the rest. It's a focused launcher,
+        not an entitlements dashboard.
+      </p>
+      <h3>2 · Predictable controls, clean hierarchy</h3>
+      <p>
+        Make interactive elements obvious and consistent; keep the rest visually quiet. No novelty that
+        breaks recognition on a surface people use reflexively.
+      </p>
+      <h3>3 · A consistent place for value</h3>
+      <p>
+        Give plan value one predictable home: what you have, where it helps, and what the next tier
+        unlocks. Don't scatter it across the panel.
+      </p>
+
+      <h2>The framework: a fixed frame with a flexible core</h2>
+      <p>
+        The core move was deciding, explicitly, <strong>what stays fixed and what adapts</strong>. It's the
+        same systems instinct that keeps a platform coherent as it grows.
+      </p>
+      <h3>Fixed: the identity backbone</h3>
+      <ul class="bullets">
+        <li>Account information</li>
+        <li>Switch account</li>
+        <li>Sign out</li>
+      </ul>
+      <p>The parts that are about <em>who you are</em> stay consistent everywhere the surface appears.</p>
+      <h3>Adaptive: the contextual core</h3>
+      <p>
+        A single flexible slot renders the most useful thing for that person: <strong>plan
+        benefits</strong>, a <strong>value or upgrade message</strong>, or <strong>key account
+        alerts</strong>. That one decision let one component serve four very different states without
+        splintering, and it gave Growth a consistent space to experiment.
+      </p>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(720px, 94vw);">
+        <div style="display:flex; gap:1.6rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+          <div style="flex:1 1 240px; max-width:330px;">
+            <img src="../assets/images/profiles-framework-upsell.svg" alt="The Me Control framework: a fixed frame (logo, sign out, account information, switch account) with the flexible middle section surfacing an upsell above plan benefits." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Flexible core surfacing an <strong>upsell</strong></p>
+          </div>
+          <div style="flex:1 1 240px; max-width:330px;">
+            <img src="../assets/images/profiles-framework-alerts.svg" alt="The same Me Control framework with the flexible middle section instead surfacing key account alerts above plan benefits." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Same frame surfacing <strong>key alerts</strong></p>
+          </div>
+        </div>
+        <figcaption>The architecture: a fixed identity frame (account information, switch account, sign out) with one flexible, contextual core that swaps between value, benefits, and alerts.</figcaption>
+      </figure>
+
+      <h2>Designing for every identity state</h2>
+      <p>
+        The flexible core let one surface personalize itself to each kind of user, without ever feeling
+        like four disconnected designs.
+      </p>
+      <h3>Consumer · Personal &amp; Family</h3>
+      <p>
+        Shifted the emphasis from raw account usage to the <strong>value the plan already includes</strong>,
+        and made it easier to manage. A selectively-surfaced area handles key action items. Shown in
+        the right context, the right next action both helped users and lifted conversion.
+      </p>
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(1000px, 96vw);">
+        <div style="display:flex; gap:1.4rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+          <div style="flex:1 1 200px; max-width:300px;">
+            <img src="../assets/images/profiles-consumer-pf.svg" alt="Me Control for a Consumer Personal & Family user: account header with Manage account, a plan-benefits section (Microsoft 365 Personal, 1 TB cloud storage) with View plan benefits, and Switch account." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Plan value, foregrounded</p>
+          </div>
+          <div style="flex:1 1 200px; max-width:300px;">
+            <img src="../assets/images/profiles-consumer-pf-action.webp" alt="The same Me Control with a key action item surfaced: a 'Your storage is full' alert with a Get more storage button, above the plan-benefits section." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">With a key action item surfaced</p>
+          </div>
+          <div style="flex:1 1 200px; max-width:300px;">
+            <img src="../assets/images/profiles-consumer-pf-switch.webp" alt="The same Me Control with Switch account expanded, showing the multi-account list (Erika Fuller, Amanda Brady) and an Add another account option." style="width:100%; display:block;" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Switch account, expanded</p>
+          </div>
+        </div>
+        <!--<figcaption>Consumer · Personal &amp; Family: plan value foregrounded, key action items surfaced in context, and fast switching between accounts.</figcaption>-->
+      </figure>
+
+      <h3>Consumer · Basic &amp; Free</h3>
+      <p>
+        A persistent value section, consistent no matter which product opened the Me Control. It lives in
+        the flexible core, which gives Growth one comparable surface to test content and visuals.
+      </p>
+      <figure class="cs-figure">
+        <div style="display:flex; justify-content:center;">
+          <img src="../assets/images/profiles-consumer-free.webp" alt="Me Control for a Consumer Basic & Free user: account header, a persistent 'Add AI to your plan' upsell with an Upgrade button, the current plan (Microsoft 365 Basic, limited access, no AI capabilities) with Learn about your plan, and Switch account." style="width:100%; max-width:300px; display:block;" />
+        </div>
+        <figcaption>Consumer · Basic &amp; Free: a persistent value section (here, an &ldquo;Add AI to your plan&rdquo; upsell), consistent across every product entry point.</figcaption>
+      </figure>
+
+      <h3>Commercial · Free (no Copilot license)</h3>
+      <p>
+        Led with a benefit-led message about what a more capable plan unlocks, while stating the current
+        plan plainly. The value reads clearly without hiding what the user has today. (Two copy directions
+        were tested.)
+      </p>
+      <figure class="cs-figure">
+        <div style="display:flex; justify-content:center;">
+          <img src="../assets/images/profiles-commercial-free.webp" alt="Me Control for a Commercial Free user on the Contoso org: account header, the current plan (Copilot with standard access, limits apply) with View plan benefits, a 'Go further with Copilot' upsell with an Upgrade button, and Switch account." style="width:100%; max-width:300px; display:block;" />
+        </div>
+        <figcaption>Commercial · Free: a benefit-led message (&ldquo;Go further with Copilot&rdquo;), with the current plan still stated plainly.</figcaption>
+      </figure>
+
+      <h3>Commercial · Premium</h3>
+      <p>
+        Kept it clean and confident: surface the capabilities they're <em>already</em> entitled to, and
+        offer an easy path to explore the rest. A reminder of value, not a sales pitch.
+      </p>
+      <figure class="cs-figure">
+        <div style="display:flex; justify-content:center;">
+          <img src="../assets/images/profiles-commercial-premium.webp" alt="Me Control for a Commercial Premium user on the Contoso org: account header, the current plan (Copilot with premium features: premium models with work data and specialized agents) with View plan benefits, and Switch account. No upsell." style="width:100%; max-width:300px; display:block;" />
+        </div>
+        <figcaption>Commercial · Premium: current capabilities surfaced confidently, reinforcing the value of the plan (no upsell).</figcaption>
+      </figure>
+
+      <h3>Mobile</h3>
+      <p>
+        On mobile, the Me Control surfaces as a bottom sheet. The fixed frame and flexible core carry
+        over, tuned for the smaller screen.
+      </p>
+      <figure class="cs-figure">
+        <div style="display:flex; gap:1.6rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+          <div style="flex:0 1 250px; max-width:250px;">
+            <img src="../assets/images/profiles-mobile-consumer.webp" alt="The Me Control on mobile for a Consumer Personal & Family user, a bottom sheet over the app, showing the account, Microsoft 365 Personal with View plan benefits, and the account-switching list (Erika Fuller, Amanda Brady, Add account)." style="width:100%; display:block; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Consumer · Personal &amp; Family</p>
+          </div>
+          <div style="flex:0 1 250px; max-width:250px;">
+            <img src="../assets/images/profiles-mobile-commercial.webp" alt="The Me Control on mobile for a Commercial Free user on the Contoso org, a bottom sheet showing Copilot with standard access, a 'Go further with Copilot' upsell with Upgrade, and the account-switching list." style="width:100%; display:block; filter:drop-shadow(0 8px 22px rgba(0,0,0,0.14));" />
+            <p style="text-align:center; font-size:var(--step--1); color:var(--text-mute); margin:0.8rem 0 0;">Commercial · Free</p>
+          </div>
+        </div>
+        <!--<figcaption>On mobile, the Me Control appears as a bottom sheet: the same fixed frame and contextual core, tuned for the smaller screen.</figcaption>
+      </figure>-->
+
+      <h2>Impact</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="num">4</div><div class="label">Identity states unified in one framework</div></div>
+        <div class="cs-metric"><div class="num">3</div><div class="label">Surfaces: web, desktop, mobile</div></div>
+        <div class="cs-metric"><div class="num">1</div><div class="label">Flexible core powering benefits, value &amp; alerts</div></div>
+      </div>
+      <p>
+        The result: one identity framework that reads clearly for every user, makes license and access
+        state visible on a surface people already trust, and gives Growth one place to communicate value,
+        all without turning a calm surface into a dashboard.
+      </p>
+
+      <h2>What I learned</h2>
+      <p>
+        On an identity surface, restraint is the craft. The hardest calls weren't what to add. They were
+        what to leave out, so the panel stayed instantly recognizable. A flexible frame beats a bespoke
+        screen per segment: one surface that respects very different people yet still feels like one
+        product. And on the surfaces people trust most, growth and trust have to point the same way.
+      </p>
+
+      <div class="cs-next">
+        <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+        <a href="experience-system.html" class="btn btn--ghost">Next: A scalable experience system <span class="ico-arr">→</span></a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__base">
+        <span>© <span id="year">2026</span> Amrith Srinivasan</span>
+        <a href="../index.html#contact">Get in touch <span class="ico-arr">→</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js?v=11"></script>
+</body>
+</html>

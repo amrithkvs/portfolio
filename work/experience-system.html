@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>A Scalable Experience System · Amrith Srinivasan</title>
+  <meta name="description" content="Case study: evolving a one-size-fits-all surface into a scalable, contextual experience system across Microsoft 365." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../styles.css?v=55" />
+  <style>
+    /* architecture diagram: dark by default, light variant when theme is light */
+    .dia-light { display: none; }
+    :root[data-theme="light"] .dia-dark { display: none; }
+    :root[data-theme="light"] .dia-light { display: block; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html" class="nav__brand">Amrith Srinivasan</a>
+      <div class="nav__right">
+        <nav class="nav__links">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">Approach</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../assets/resume.pdf" class="nav__cta">Resume <span class="ico-arr">↗</span></a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cs-hero wrap">
+      <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+      <p class="eyebrow">Design systems at scale · Contextual theming</p>
+      <h1>A scalable, contextual experience system</h1>
+      <p class="cs-hero__lede">
+        I took a one-size-fits-all dialog and turned it into a system. The M365 plan-comparison
+        modal now feels native inside many Microsoft products, without splitting into separate
+        things to maintain.
+      </p>
+
+
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Lead Designer</dd></div>
+        <div><dt>Scope</dt><dd>Cross-product dialog</dd></div>
+        <div><dt>Timeline</dt><dd>6 months</dd></div>
+        <div><dt>System</dt><dd>13 themes</dd></div>
+      </dl>
+    </section>
+
+    <article class="cs-body wrap">
+
+      <h2>The problem</h2>
+      <p>
+        People reached the M365 plan-comparison modal from all over:
+        <strong>Copilot, Word, Excel, PowerPoint, Outlook, OneNote, OneDrive and more</strong>. But they all
+        landed in the same <em>generic</em> experience that ignored where they'd just come from.
+      </p>
+
+      <div class="cs-figure">
+        <h3 style="margin-top:0;">The strategic question</h3>
+        <p style="font-size:var(--step-1); color:var(--text);">
+          “How might we make the M365 plan-comparison modal feel contextual everywhere, without fragmenting it?”
+        </p>
+      </div>
+
+      <h2>Challenge</h2>
+      <p>Four goals pulled against each other:</p>
+      <ul class="bullets">
+        <li><strong>Consistency</strong>: it had to stay one coherent platform.</li>
+        <li><strong>Relevance</strong>: every entry point wanted to feel native to its product.</li>
+        <li><strong>Accessibility</strong>: every theme had to clear the bar, dark mode included.</li>
+        <li><strong>Scalability</strong>: it had to absorb future products without a redesign.</li>
+      </ul>
+      <p>
+        It grew from <strong>one theme to thirteen</strong>. Each one had accessibility and dark mode built
+        in from the start, not bolted on later.
+      </p>
+
+      <h2>Design-system thinking</h2>
+      <p>
+        The core move was to decide, up front, <strong>what stays fixed and what adapts</strong>. That single
+        decision is what let the modal feel contextual <em>and</em> coherent at the same time.
+      </p>
+      <h3>Fixed (the M365 plan-comparison modal's backbone)</h3>
+      <ul class="bullets">
+        <li>Layout</li>
+        <li>Navigation</li>
+        <li>Underlying structure</li>
+      </ul>
+      <h3>Adaptive (the contextual layer)</h3>
+      <ul class="bullets">
+        <li>Branding &amp; visual identity</li>
+        <li>Headers</li>
+        <li>Illustrations &amp; color</li>
+      </ul>
+
+      <figure class="cs-figure">
+        <div class="cs-figure__frame" style="padding:0; min-height:0;">
+          <img class="dia-dark" src="../assets/images/system-fixed-vs-adaptive.svg" alt="Diagram: a fixed backbone (layout, navigation, structure) with a swappable contextual layer (brand, headers, color, content hierarchy) that 13 product themes plug into." />
+          <img class="dia-light" src="../assets/images/system-fixed-vs-adaptive-light.svg" alt="Diagram: a fixed backbone (layout, navigation, structure) with a swappable contextual layer (brand, headers, color, content hierarchy) that 13 product themes plug into." />
+        </div>
+        <figcaption>The architecture: a fixed backbone with a swappable contextual layer.</figcaption>
+      </figure>
+
+      <h2>Key design decisions</h2>
+      <h3>1 · How should the dialog feel contextual without becoming fragmented?</h3>
+      <p>
+        I built a flexible theming framework that feels native to each product while staying consistent
+        across all of them.
+      </p>
+      <h3>2 · What should remain fixed, and what should adapt?</h3>
+      <p>
+        I separated the foundations from the expression. Interactions stay consistent, while branding,
+        content, and visuals adapt.
+      </p>
+      <h3>3 · How should the system scale across future products?</h3>
+      <p>
+        A reusable framework that absorbs new products, themes, and accessibility needs without a redesign.
+      </p>
+      <h3>4 · How do we maintain quality at scale?</h3>
+      <p>
+        Design standards and validation so every theme met the same usability and accessibility bar.
+      </p>
+
+      <h2>My process</h2>
+      <ul class="bullets">
+        <li><strong>Theme architecture</strong>: how a theme is defined and composed.</li>
+        <li><strong>Component inventory</strong>: what already existed and what had to flex.</li>
+        <li><strong>Token strategy</strong>: each app has a brand palette (10–160), so I pulled tokens from that set to keep things easy to scale.</li>
+        <li><strong>Theme governance</strong>: sticking to each brand's own guidance and palette made new apps much easier for engineering to add.</li>
+        <li><strong>Accessibility reviews</strong>: contrast, dark mode, and spec work across all 13.</li>
+      </ul>
+
+      <figure class="cs-figure" style="max-width: 420px; margin-inline: auto;">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; border-radius:0; overflow:visible;">
+          <img src="../assets/images/system-control.webp" alt="The original Microsoft 365 plan-comparison dialog, one generic experience shown identically across every product, with no contextual theming." style="border-radius:4px; box-shadow:0 7px 20px rgba(0,0,0,0.13);" />
+        </div>
+        <figcaption>Before: one generic dialog, shown identically no matter which product you arrived from.</figcaption>
+      </figure>
+
+      <figure class="cs-figure" style="position:relative; left:50%; transform:translateX(-50%); width:min(880px, 94vw);">
+        <div class="cs-figure__frame" style="padding:0; min-height:0; border:0; background:transparent; overflow:visible;">
+          <img src="../assets/images/system-themes.webp" alt="The same plan-comparison dialog re-themed for four apps: Word (blue), Excel (green), PowerPoint (orange), and OneNote (purple), each with its own hero icon, headline, and accent color." style="filter: drop-shadow(0 7px 10px rgba(0,0,0,0.13));" />
+        </div>
+        <figcaption>After: one system, re-themed per entry-point app. Here Word, Excel, PowerPoint, and OneNote (4 of 13 themes).</figcaption>
+      </figure>
+
+      <h2>Cross-functional collaboration</h2>
+      <p>
+        I worked with <strong>developers</strong> on keeping the theming maintainable, <strong>accessibility</strong> teams on holding the bar across themes, <strong>PMs</strong> on which contexts to prioritize, and <strong>researchers</strong>. To keep everyone aligned, I defined where the platform was allowed to customize and wrote the framework teams used to add new products without losing consistency or quality.
+      </p>
+
+       <h2>Impact</h2>
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="num">2%</div><div class="label">Conversion rate</div></div>
+        <div class="cs-metric"><div class="num">100k</div><div class="label">Lift in subscriptions</div></div>
+        <div class="cs-metric"><div class="num">13</div><div class="label">Surfaces shipped across</div></div>
+      </div>
+
+      <!--<h2>Outcome</h2>
+      <ul class="bullets">
+        <li><strong>Platform flexibility</strong>: contextual experiences without code forks.</li>
+        <li><strong>Faster onboarding</strong> for new products adopting the system.</li>
+        <li><strong>Better contextual relevance</strong> at each entry point.</li>
+        <li><strong>Future scalability</strong>: new themes without re-architecture.</li>
+      </ul>-->
+
+      <h2>What I'd do differently</h2>
+      <p>
+        The biggest lesson was that scalability doesn't guarantee consistency. The system leaned on shared tokens and gradients, but each product rendered them a little differently, so getting things to feel cohesive still took deliberate, surface-by-surface work.
+      </p>
+
+      <div class="cs-next">
+        <a href="../index.html#work" class="cs-back"><span class="ico-arr">←</span> All work</a>
+        <a href="m365-premium.html" class="btn btn--ghost">Next: Bringing M365 Premium to market <span class="ico-arr">→</span></a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__base">
+        <span>© <span id="year">2026</span> Amrith Srinivasan</span>
+        <a href="../index.html#contact">Get in touch <span class="ico-arr">→</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js?v=11"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+/* =========================================================
+   Portfolio — shared design system
+   Edit tokens here; everything else inherits.
+   ========================================================= */
+
+:root {
+  /* Palette — confident, editorial neutral + one accent.
+     Swap --accent to rebrand the whole site in one line. */
+  --bg:        #0d0d0f;
+  --bg-elev:   #16161a;
+  --surface:   #1d1d22;
+  --line:      #2c2c33;
+  --text:      #f4f4f5;
+  --text-dim:  #a1a1aa;
+  --text-mute: #71717a;
+  --accent:    #ff7700;   /* brand/fill — swap to retune the whole site (was #e50914 red) */
+  --accent-dim:#7a3a00;   /* was #7a1015 */
+  --accent-text:#ff7700;  /* accent used as TEXT (AA on dark; light theme overrides) */
+  --on-accent: #18181b;   /* text/icons placed ON an accent fill (e.g. buttons) */
+
+  /* Type scale */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.9rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1:  clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --step-2:  clamp(1.75rem, 1.5rem + 1.2vw, 2.6rem);
+  --step-3:  clamp(2.4rem, 1.9rem + 2.6vw, 4.4rem);
+  --step-4:  clamp(3rem, 2.2rem + 4vw, 6rem);
+
+  /* Spacing / layout */
+  --maxw: 1140px;
+  --gutter: clamp(1.2rem, 5vw, 4rem);
+  --radius: 14px;
+  --radius-lg: 22px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+}
+
+/* ---------- Light theme (set [data-theme="light"] on <html>) ---------- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:        #ffffff;
+  --bg-elev:   #f5f6f8;
+  --surface:   #eceef2;
+  --line:      #e3e5ea;
+  --text:      #18181b;
+  --text-dim:  #50535a;
+  --text-mute: #83878e;
+  --accent-dim:#ffd9b8;   /* was #f0c0c3 */
+  --accent-text:#b35200;  /* deeper orange so accent TEXT clears AA on white/card surfaces (4.7:1 on #f5f6f8) */
+}
+
+/* Smooth cross-fade when the theme flips */
+body, .nav, .case, .case__media, .cs-figure__frame, .cs-metric,
+.tag, .note, .btn--ghost, .nav__cta, .theme-toggle, .about__photo, .footer {
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ---------- Layout helpers ---------- */
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: clamp(4rem, 10vw, 8rem); }
+.eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.muted { color: var(--text-dim); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav__brand { font-weight: 700; letter-spacing: -0.01em; font-size: 1.05rem; }
+.nav__links { display: flex; gap: 2rem; align-items: center; }
+.nav__links a { color: var(--text-dim); font-size: var(--step--1); font-weight: 500; transition: color .2s; }
+.nav__links a:hover { color: var(--text); }
+.nav__cta {
+  border: 1px solid var(--line); padding: 0.5rem 1rem; border-radius: 100px;
+  color: var(--text) !important;
+}
+.nav__cta:hover { border-color: var(--accent); }
+.nav__toggle { display: none; background: none; border: 0; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+/* right-side nav group + theme toggle */
+.nav__right { display: flex; align-items: center; gap: 1.5rem; }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 100px; flex: none;
+  background: transparent; border: 1px solid var(--line); color: var(--text-dim);
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: inline; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(5rem, 14vw, 10rem) clamp(3rem, 8vw, 6rem); }
+.hero h1 {
+  font-size: var(--step-4);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  max-width: 16ch;
+}
+.hero h1 .accent { color: var(--accent-text); }
+.hero__lede {
+  margin-top: 1.6rem; max-width: 56ch; font-size: var(--step-1);
+  color: var(--text-dim); font-weight: 400; line-height: 1.4;
+}
+.hero__meta { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.tag {
+  font-size: var(--step--1); color: var(--text-dim);
+  border: 1px solid var(--line); border-radius: 100px; padding: 0.4rem 0.9rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent); color: var(--on-accent); font-weight: 600;
+  padding: 0.8rem 1.5rem; border-radius: 100px; font-size: var(--step-0);
+  transition: transform .2s var(--ease), filter .2s;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn--ghost { background: transparent; border: 1px solid var(--line); color: var(--text); }
+.btn--ghost:hover { border-color: var(--accent); }
+.btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+
+/* ---------- Section heading ---------- */
+.head { max-width: 60ch; margin-bottom: 3rem; }
+.head h2 {
+  font-size: var(--step-2); letter-spacing: -0.02em; font-weight: 700;
+  margin-top: 0.6rem; line-height: 1.1;
+}
+
+/* ---------- Work grid (case study cards) ---------- */
+.work { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); }
+.case {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+  background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: border-color .3s, transform .3s var(--ease);
+}
+.case:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
+.case:nth-child(even) { grid-template-columns: 1fr 1.1fr; }
+.case:nth-child(even) .case__media { order: 2; }
+.case__body { padding: clamp(1.8rem, 4vw, 3rem); display: flex; flex-direction: column; justify-content: center; }
+.case__num { font-size: var(--step--1); color: var(--text-mute); letter-spacing: 0.1em; }
+.case__title { font-size: var(--step-2); letter-spacing: -0.02em; line-height: 1.08; margin: 0.4rem 0 0.8rem; font-weight: 700; }
+.case__desc { color: var(--text-dim); }
+.case__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+.case__link { margin-top: 1.8rem; color: var(--accent-text); font-weight: 600; font-size: var(--step-0); display: inline-flex; align-items: center; gap: 0.4rem; }
+.case__link span { position: relative; top: 0.06em; transition: transform .2s var(--ease); }
+/* Optically center arrow glyphs (→ ← ↗) — they sit high on the math axis. */
+.ico-arr { position: relative; top: 0.06em; }
+.case:hover .case__link span { transform: translateX(4px); }
+.case__media {
+  background: linear-gradient(135deg, var(--surface), var(--bg));
+  min-height: 280px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.case__media img { width: 100%; height: 100%; object-fit: cover; }
+.case__placeholder {
+  color: var(--text-mute); font-size: var(--step--1); text-align: center;
+  padding: 2rem; border: 1px dashed var(--line); border-radius: var(--radius);
+  margin: 1.5rem;
+}
+.anchor-badge {
+  position: absolute; top: 1rem; left: 1rem; z-index: 2;
+  background: var(--accent); color: var(--on-accent); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: 100px;
+}
+
+/* ---------- Coverflow (auto-rotating modal carousel in a case card) ---------- */
+.coverflow { position: absolute; inset: 0; perspective: 1500px; transform-style: preserve-3d; }
+.coverflow .coverflow__item {
+  position: absolute; top: 50%; left: 50%; width: 60%; height: auto; max-height: 88%;
+  object-fit: contain;
+  border-radius: 8px; box-shadow: 0 7px 20px rgba(0,0,0,0.13);
+  transform-origin: center center; backface-visibility: hidden;
+  will-change: transform, opacity;
+  animation: coverflow 9s cubic-bezier(0.66, 0, 0.34, 1) infinite;
+  /* Static by default; only runs while the card is in frame (toggled by .is-playing via JS). */
+  animation-play-state: paused;
+}
+.coverflow.is-playing .coverflow__item { animation-play-state: running; }
+.coverflow__item:nth-child(1) { animation-delay: 0s; }    /* Word  → front 1st (right side at start) */
+.coverflow__item:nth-child(2) { animation-delay: -6s; }   /* Excel → front 2nd (right side at start) */
+.coverflow__item:nth-child(3) { animation-delay: -3s; }   /* PowerPoint → front 3rd (left side at start) */
+
+@keyframes coverflow {
+  /* FRONT (held ~3s) */
+  0%,
+  24%  { transform: translate(-50%,-50%) translateX(0)    translateZ(0)      rotateY(0deg)   scale(1);   opacity: 1;   z-index: 3; }
+  /* → LEFT-back (held) */
+  33%,
+  57%  { transform: translate(-50%,-50%) translateX(-33%) translateZ(-140px) rotateY(13deg)  scale(.78); opacity: .94; z-index: 2; }
+  /* → swing around BEHIND the front */
+  62%  { transform: translate(-50%,-50%) translateX(0)    translateZ(-440px) rotateY(0deg)   scale(.54); opacity: .35; z-index: 1; }
+  /* → RIGHT-back (held) */
+  67%,
+  91%  { transform: translate(-50%,-50%) translateX(33%)  translateZ(-140px) rotateY(-13deg) scale(.78); opacity: .94; z-index: 2; }
+  /* → back to FRONT */
+  100% { transform: translate(-50%,-50%) translateX(0)    translateZ(0)      rotateY(0deg)   scale(1);   opacity: 1;   z-index: 3; }
+}
+
+/* ---------- Scale swap (single card zooms up & cross-dissolves to the next, in a case card) ---------- */
+.scaleshow { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; }
+/* Two-class depth to beat `.case__media img { height:100%; object-fit:cover }`. */
+.scaleshow .scaleshow__item {
+  grid-area: 1 / 1; height: 69%; width: auto; object-fit: contain;
+  transform-origin: center center; opacity: 0;
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,0.45));
+  will-change: transform, opacity;
+  animation: scaleshow 9s ease-in-out infinite;
+  /* Static until the card is in frame (toggled by .is-playing via JS). */
+  animation-play-state: paused;
+}
+.scaleshow.is-playing .scaleshow__item { animation-play-state: running; }
+.scaleshow .scaleshow__item:nth-child(1) { animation-delay: 0s; }
+.scaleshow .scaleshow__item:nth-child(2) { animation-delay: -3s; }
+.scaleshow .scaleshow__item:nth-child(3) { animation-delay: -6s; }
+
+/* Each card zooms up from small + fades in (on top), holds, then fades out at full size
+   while the next zooms up over it. Then shrinks back invisibly to wait its turn. */
+@keyframes scaleshow {
+  0%   { opacity: 0; transform: scale(0.55); z-index: 40; }
+  8%   { opacity: 1; transform: scale(1);    z-index: 40; }
+  30%  { opacity: 1; transform: scale(1);    z-index: 40; }
+  31%  { opacity: 1; transform: scale(1);    z-index: 20; }
+  40%  { opacity: 0; transform: scale(1);    z-index: 20; }
+  48%  { opacity: 0; transform: scale(0.55); z-index: 20; }
+  100% { opacity: 0; transform: scale(0.55); z-index: 20; }
+}
+
+/* ---------- Banner stack (vertical cycling deck of upsell banners in a case card) ---------- */
+.bannerstack { position: absolute; inset: 0; overflow: hidden; }
+/* Two-class selector to beat `.case__media img { height:100%; object-fit:cover }`. */
+.bannerstack .bannerstack__item {
+  position: absolute; top: 50%; left: 50%; width: 90%; height: auto; object-fit: contain;
+  transform-origin: center center; backface-visibility: hidden;
+  filter: drop-shadow(0 9px 20px rgba(0,0,0,0.38));
+  will-change: transform, opacity;
+  animation: bannerstack 11s cubic-bezier(0.66, 0, 0.34, 1) infinite;
+  /* Static until the card is in frame (toggled by .is-playing via JS). */
+  animation-play-state: paused;
+}
+.bannerstack.is-playing .bannerstack__item { animation-play-state: running; }
+.bannerstack__item:nth-child(1) { animation-delay: 0s; }
+.bannerstack__item:nth-child(2) { animation-delay: -2.75s; }
+.bannerstack__item:nth-child(3) { animation-delay: -5.5s; }
+.bannerstack__item:nth-child(4) { animation-delay: -8.25s; }
+
+@keyframes bannerstack {
+  /* FRONT (held) */
+  0%,
+  16%    { transform: translate(-50%,-50%) translateY(0)     scale(1);    opacity: 1;   z-index: 40; }
+  /* slide up & fade out */
+  22%    { transform: translate(-50%,-50%) translateY(-48px) scale(1);    opacity: 0;   z-index: 40; }
+  /* teleport to the back of the stack while invisible */
+  22.01% { transform: translate(-50%,-50%) translateY(36px)  scale(0.85); opacity: 0;   z-index: 10; }
+  /* fade in at the back, then climb forward through the stack */
+  30%    { transform: translate(-50%,-50%) translateY(36px)  scale(0.85); opacity: .12; z-index: 10; }
+  52%    { transform: translate(-50%,-50%) translateY(24px)  scale(0.90); opacity: .32; z-index: 20; }
+  76%    { transform: translate(-50%,-50%) translateY(12px)  scale(0.95); opacity: .58; z-index: 30; }
+  100%   { transform: translate(-50%,-50%) translateY(0)     scale(1);    opacity: 1;   z-index: 40; }
+}
+
+/* ---------- Card swipe (deck whose front card swipes off to reveal the next) ---------- */
+.cardswipe { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; }
+/* Two-class selector to beat `.case__media img { height:100%; object-fit:cover }`. */
+.cardswipe .cardswipe__item {
+  grid-area: 1 / 1; height: 60%; width: auto; object-fit: contain;
+  border-radius: 10px;
+  transform-origin: center center; backface-visibility: hidden;
+  filter: drop-shadow(0 16px 34px rgba(0,0,0,0.46));
+  will-change: transform, opacity;
+  /* easeInOutSine for a soft, gliding accel/decel. */
+  animation: cardswipe 12s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  /* Static until the card is in frame (toggled by .is-playing via JS). */
+  animation-play-state: paused;
+}
+.cardswipe.is-playing .cardswipe__item { animation-play-state: running; }
+/* Two cards, offset by half the cycle: one is front while the other waits behind. */
+.cardswipe .cardswipe__item:nth-child(1) { animation-delay: 0s; }
+.cardswipe .cardswipe__item:nth-child(2) { animation-delay: -6s; }
+
+/* Diagonal conveyor along the top-right ↔ bottom-left axis: a card glides in from the
+   top-right (behind), rises to the front at center, holds, then exits down-left and tucks
+   behind toward the bottom-left — looping invisibly back to the top-right. With two cards
+   offset by half a cycle, one exits bottom-left as the other enters from the top-right. */
+@keyframes cardswipe {
+  /* hold at center, front */
+  0%,
+  44%    { transform: translate(0, 0)       scale(1);   opacity: 1; z-index: 40; }
+  /* drop behind, then a quick fade-out toward the bottom-left (kept well inside the box) */
+  45%    { transform: translate(0, 0)       scale(1);   opacity: 1; z-index: 20; }
+  52%    { transform: translate(-12%, 12%)  scale(0.9); opacity: 0; z-index: 20; }
+  /* invisible: reposition just off toward the top-right (front, ready to enter) */
+  52.01% { transform: translate(12%, -12%)  scale(0.9); opacity: 0; z-index: 40; }
+  92%    { transform: translate(12%, -12%)  scale(0.9); opacity: 0; z-index: 40; }
+  /* quick fade-in from the top-right, landing on top at center */
+  100%   { transform: translate(0, 0)       scale(1);   opacity: 1; z-index: 40; }
+}
+
+/* Static stack for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cardswipe__item { animation: none; }
+  .cardswipe__item:nth-child(1) { transform: translate(0,0)       scale(1);   z-index: 40; }
+  .cardswipe__item:nth-child(2) { transform: translate(12%,-12%)  scale(0.9); z-index: 10; }
+  .coverflow__item { animation: none; }
+  .coverflow__item:nth-child(1) { transform: translate(-50%,-50%); z-index: 3; }
+  .coverflow__item:nth-child(2) { transform: translate(-50%,-50%) translateX(33%)  translateZ(-140px) rotateY(-13deg) scale(.78); z-index: 2; }
+  .coverflow__item:nth-child(3) { transform: translate(-50%,-50%) translateX(-33%) translateZ(-140px) rotateY(13deg)  scale(.78); z-index: 2; }
+}
+
+/* ---------- About ---------- */
+.about { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.about__photo {
+  aspect-ratio: 1; border-radius: var(--radius-lg); background: var(--surface);
+  display: flex; align-items: center; justify-content: center; color: var(--text-mute);
+  border: 1px solid var(--line); font-size: var(--step--1); text-align: center; overflow: hidden;
+}
+.about__photo img { width: 100%; height: 100%; object-fit: cover; }
+.about p + p { margin-top: 1.2rem; }
+.about p { color: var(--text-dim); }
+.about strong { color: var(--text); font-weight: 600; }
+
+/* ---------- Footer / contact ---------- */
+.footer { border-top: 1px solid var(--line); padding-block: clamp(3rem, 8vw, 5rem); }
+/* compact footer on case-study pages (the index contact footer keeps its generous spacing) */
+.footer:not(#contact) { padding-block: clamp(1.6rem, 3.5vw, 2.4rem); }
+.footer h2 { font-size: var(--step-3); letter-spacing: -0.03em; font-weight: 800; line-height: 1.05; }
+.footer__links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; }
+.footer__links a { color: var(--text-dim); font-weight: 500; transition: color .2s; }
+.footer__links a:hover { color: var(--accent-text); }
+.footer__base { margin-top: 4rem; color: var(--text-mute); font-size: var(--step--1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+/* =========================================================
+   Case-study page
+   ========================================================= */
+.cs-hero { padding-block: clamp(4rem, 10vw, 7rem) clamp(2rem, 5vw, 4rem); }
+.cs-back { color: var(--text-dim); font-size: var(--step--1); display: inline-flex; gap: 0.4rem; margin-bottom: 2rem; }
+.cs-back:hover { color: var(--accent-text); }
+.cs-hero h1 { font-size: var(--step-3); letter-spacing: -0.03em; line-height: 1.05; font-weight: 800; max-width: 20ch; margin-top: 0.6rem; }
+.cs-hero__lede { margin-top: 1.4rem; max-width: 60ch; font-size: var(--step-1); color: var(--text-dim); line-height: 1.4; }
+
+.cs-meta {
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 1.5rem 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding-block: 2rem; margin-top: 3rem;
+}
+.cs-meta dt { font-size: var(--step--1); color: var(--text-mute); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.cs-meta dd { color: var(--text); font-weight: 500; }
+
+.cs-body { max-width: 70ch; margin-inline: auto; }
+.cs-body h2 { font-size: var(--step-2); letter-spacing: -0.02em; font-weight: 700; margin: 3.5rem 0 1rem; line-height: 1.15; }
+.cs-body h3 { font-size: var(--step-1); font-weight: 600; margin: 2.5rem 0 0.8rem; }
+.cs-body p { color: var(--text-dim); margin-bottom: 1.2rem; }
+.cs-body ul.bullets { margin: 0 0 1.2rem 1.2rem; list-style: disc; color: var(--text-dim); }
+.cs-body ul.bullets li { margin-bottom: 0.5rem; }
+.cs-body strong { color: var(--text); }
+
+.cs-figure { margin: 2.5rem 0; }
+.cs-figure__frame {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  min-height: 320px; display: flex; align-items: center; justify-content: center;
+  color: var(--text-mute); font-size: var(--step--1); text-align: center; padding: 2rem; overflow: hidden;
+}
+.cs-figure__frame img { width: 100%; border-radius: calc(var(--radius) - 4px); }
+.cs-figure figcaption { color: var(--text-mute); font-size: var(--step--1); margin-top: 0.8rem; text-align: center; }
+
+.cs-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+.cs-metric { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; }
+.cs-metric .num { font-size: var(--step-2); font-weight: 800; color: var(--accent-text); letter-spacing: -0.02em; }
+.cs-metric .label { color: var(--text-dim); font-size: var(--step--1); margin-top: 0.4rem; }
+
+.cs-next { border-top: 1px solid var(--line); margin-top: 4rem; padding-top: 3rem; padding-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.cs-next .cs-back { margin-bottom: 0; }
+
+/* Editorial note blocks — visible only because this is a skeleton.
+   Delete the .note elements (and this rule) once content is in. */
+.note {
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-elev));
+  border: 1px solid var(--accent-dim); border-left: 3px solid var(--accent);
+  border-radius: var(--radius); padding: 1rem 1.2rem; margin: 1.5rem 0;
+  font-size: var(--step--1); color: var(--text-dim);
+}
+.note b { color: var(--text); }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .cs-meta { justify-content: flex-start; gap: 1.5rem 2.5rem; }
+  .case, .case:nth-child(even) { grid-template-columns: 1fr; }
+  .case:nth-child(even) .case__media { order: 0; }
+  /* Definite height + definite px image heights so the % -sized animation images
+     (scaleshow/cardswipe) don't resolve against an indefinite grid row and overflow/crop. */
+  .case__media { min-height: 0; height: 240px; }
+  .scaleshow .scaleshow__item { height: 185px; }
+  .cardswipe .cardswipe__item { height: 160px; }
+  .about { grid-template-columns: 1fr; }
+  .about__photo { max-width: 280px; }
+  .nav__links { display: none; }
+  .nav__toggle { display: block; }
+  .nav.open .nav__links {
+    display: flex; position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--bg-elev);
+    border-bottom: 1px solid var(--line); padding: 1rem var(--gutter);
+  }
+  .nav.open .nav__links a { padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- Tablet & mobile: stack multi-image figure rows vertically ----------
+   Targets the inline display:flex rows used for 2-up / 3-up figures (desktop unchanged).
+   Attribute selector avoids tagging 15 elements across pages by hand. */
+@media (max-width: 1024px) {
+  .cs-figure [style*="display:flex"],
+  .cs-figure__frame [style*="display:flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  /* 2-up direct <img> children are width:50% inline — let them fill when stacked. */
+  .cs-figure [style*="display:flex"] > img {
+    width: 100% !important;
+    max-width: 560px !important;
+  }
+  /* 3-up / labelled columns: fill width up to a cap; smaller inline caps (250/300px) still win. */
+  .cs-figure [style*="display:flex"] > div {
+    width: 100% !important;
+    max-width: 560px;
+    flex: none !important;
+  }
+}
+
+/* ---------- Lightbox: click case-study figure images to enlarge ---------- */
+.cs-figure img { cursor: zoom-in; transition: opacity .15s ease; }
+.cs-figure img:hover { opacity: 0.9; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 200; display: none;
+  align-items: center; justify-content: center; cursor: zoom-out;
+  background: rgba(8, 8, 10, 0.9); backdrop-filter: blur(6px);
+  padding: clamp(1rem, 4vw, 3.5rem);
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; border-radius: 10px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); }
+.lightbox__close {
+  position: absolute; top: 1rem; right: 1.2rem; width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff; border-radius: 100px; font-size: 1.25rem; line-height: 1; cursor: pointer;
+}
+.lightbox__close:hover { background: rgba(255, 255, 255, 0.2); }
+@media (prefers-reduced-motion: reduce) { .cs-figure img { transition: none; } }
